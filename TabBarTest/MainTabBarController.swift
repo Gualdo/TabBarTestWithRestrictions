@@ -47,7 +47,11 @@ class MainTabBarController: UITabBarController {
             restrictionViewModel?.check()
             return
         }
-        restrictionViewModel?.check(outputController: currentViewController)
+//        Call this to use Protocol
+//        restrictionViewModel?.check(outputController: currentViewController)
+        
+//        Call this to use notifications
+        restrictionViewModel?.sendNotification()
     }
 }
 

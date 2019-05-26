@@ -31,4 +31,8 @@ class RestrictionsViewModel {
         
         output?.restrictionsDidChanged(isRestricted: true)
     }
+    
+    func sendNotification() {
+        NotificationCenter.default.post(name:Notification.Name(rawValue:"restrictions"), object: nil, userInfo: ["isRestricted": true])
+    }
 }

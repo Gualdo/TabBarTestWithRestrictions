@@ -27,6 +27,13 @@ class FavoriteViewController: UIViewController {
         view.backgroundColor = .white
         navigationController?.navigationBar.prefersLargeTitles = true
         navigationItem.title = "Favorite"
+        
+        NotificationCenter.default.addObserver(forName: NSNotification.Name("restrictions"), object: nil, queue: nil) { (notification) in
+            guard let userInfoDict = notification.userInfo,
+                let isRestricted = userInfoDict["isRestricted"] as? Bool
+                else { return }
+            self.isRestricted = isRestricted
+        }
     }
 }
 
